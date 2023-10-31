@@ -30,8 +30,8 @@ class PayerRequest extends FormRequest
             'payer_address_cep' => ['size:8'],
             'payer_address_street' => ['min:3', 'max:255'],
             'payer_address_district' => ['min:3', 'max:255'],
-            'payer_address_number' => ['integer', 'nullable'],
-            'payer_address_complement' => ['min:3', 'string', 'nullable'],
+            'payer_address_number' => ['nullable', 'integer'],
+            'payer_address_complement' => ['nullable', 'min:3', 'string'],
             'payer_address_city' => ['min:3', 'string', 'max:255'],
             'payer_address_state' => ['size:2', 'string'],
         ];

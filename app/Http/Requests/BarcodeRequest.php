@@ -41,11 +41,11 @@ class BarcodeRequest extends FormRequest
             'description' => ['string', Rule::requiredIf(function () use ($required_condition) {
                 return $required_condition;
             })],
-            'ticket_type' => [Rule::in([1, 2]), 'nullable'],
+            'ticket_type' => ['nullable', Rule::in([1, 2])],
             'ticket_value' => ['min:0', 'required_with:ticket_type', 'decimal:0,2'],
-            'interest_rate_type' => [Rule::in([1, 2]), 'nullable'],
+            'interest_rate_type' => ['nullable', Rule::in([1, 2])],
             'interest_rate_value' => ['min:0', 'required_with:interest_rate_type', 'decimal:0,2'],
-            'discount_type' => [Rule::in([1, 2]), 'nullable'],
+            'discount_type' => ['nullable', Rule::in([1, 2])],
             'discount_value' => ['min:0', 'required_with:discount_type', 'decimal:0,2'],
             'discount_limit_date' => ['required_with:discount_type', 'date'],
             'reference' => ['string'],
