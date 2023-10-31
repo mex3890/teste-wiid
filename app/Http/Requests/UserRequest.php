@@ -3,8 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserRequest extends FormRequest
 {
@@ -28,5 +32,14 @@ class UserRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'email', Rule::unique('users', 'email')],
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new ValidationException($validator, new JsonResponse([
+            'success' => false,
+            'message' => 'Validation error.',
+            'errors' => $validator->errors(),
+        ], Response::HTTP_BAD_REQUEST));
     }
 }

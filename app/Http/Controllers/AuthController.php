@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends ApiBaseController
@@ -36,6 +37,10 @@ class AuthController extends ApiBaseController
     public function logout(Request $request): JsonResponse
     {
         $authenticatedUser = Auth::user();
+
+        if (!($authenticatedUser instanceof User)) {
+            return $this->sendErrorResponse('Unauthenticated!', status_code: Response::HTTP_UNAUTHORIZED);
+        }
 
         if ($request->get('revoke_all') === 'true') {
             if ($authenticatedUser->tokens()->delete()) {
@@ -77,7 +82,7 @@ class AuthController extends ApiBaseController
             'name' => $request->validated('name'),
             'last_name' => $request->validated('last_name'),
             'email' => $request->validated('email'),
-            'password' => Hash::make($request->validated('password')),
+            'password' => Hash::make($request->get('password')),
         ]);
 
         if ($user instanceof User) {
