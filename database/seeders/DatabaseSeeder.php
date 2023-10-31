@@ -2,21 +2,21 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Barcode;
+use App\Models\Payer;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Create first User with Config credentials
+        User::factory()->create(Config::get('database.admin'));
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(Config::get('database.seeder.users'))->create();
+        Payer::factory(Config::get('database.seeder.payers'))->create();
+        Barcode::factory(Config::get('database.seeder.barcodes'))->create();
     }
 }

@@ -125,7 +125,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
@@ -148,4 +148,20 @@ return [
 
     ],
 
+    // Seeders configuration
+    'seeder' => [
+        'users' => 50,
+        'barcodes' => 200,
+        'payers' => 200,
+    ],
+
+    // First User credentials
+    'admin' => [
+        'name' => 'admin',
+        'last_name' => 'test',
+        'email' => 'admin.test@email.com',
+        'email_verified_at' => now(),
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'remember_token' => Str::random(10),
+    ]
 ];

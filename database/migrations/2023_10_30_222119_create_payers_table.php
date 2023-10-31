@@ -19,16 +19,17 @@ return new class extends Migration
             $table->string('payer_name');
             $table->string('payer_document');
             $table->string('payer_phone', 15);
-            $table->string('payer_email')->unique();
+            $table->string('payer_email');
             $table->date('payer_birthday');
             $table->char('payer_address_cep', 8);
             $table->string('payer_address_street');
             $table->string('payer_address_district');
-            $table->string('payer_address_number')->nullable();
+            $table->integer('payer_address_number')->nullable();
             $table->text('payer_address_complement')->nullable();
             $table->string('payer_address_city');
             $table->char('payer_address_state', 2);
             $table->timestamps();
+            $table->unique(['payer_email', 'user_id']);
         });
     }
 
