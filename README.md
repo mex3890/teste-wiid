@@ -9,17 +9,18 @@ Albuquerque, <a href="https://github.com/mex3890">Github</a>. As introduções e
 deisponíveis no repositório do <a href="https://github.com/Work-In-Ideas-WiiD/teste-backend-pleno">teste</a>.
 
 - [Postman](#Postman)
-- [Tecnologias](#tecnologias).
-- [Migrations](#migrations).
-- [Factories & Seeders](#factories--seeders).
-- [Rotas](#rotas).
+- [Tecnologias](#tecnologias)
+- [Migrations](#migrations)
+- [Factories & Seeders](#factories--seeders)
+- [Rotas](#rotas)
 
 <hr>
 
 ## Postman
 
 Para realizar testes basta importar a pasta gerada pelo Postman que estão na raiz do projeto, as instruções de
-utilização da API estão descritas na própria collection do Postman. Para utilizar corretamente basta carregar o environment
+utilização da API estão descritas na própria collection do Postman. Para utilizar corretamente basta carregar o
+environment
 do Postman e seguir as instruções descritas na collection.
 
 ## Tecnologias
@@ -59,12 +60,12 @@ Factories:
 
 - Autenticação e dados pessoais
 
-| Método | Rota          | Precisa de Autenticação | Parâmetros URI |
-|--------|---------------|-------------------------|----------------|
-| POST   | /api/login    | false                   | null           |
-| POST   | /api/register | false                   | null           |
-| GET    | /api/logout   | true                    | null           |
-| GET    | /api/me       | true                    | null           |
+| Método | Rota            | Precisa de Autenticação | Parâmetros URI |
+|--------|-----------------|-------------------------|----------------|
+| POST   | `/api/login`    | false                   | null           |
+| POST   | `/api/register` | false                   | null           |
+| GET    | `/api/logout`   | true                    | null           |
+| GET    | `/api/me`       | true                    | null           |
 
 - Boletos
 
