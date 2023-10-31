@@ -8,13 +8,19 @@ Este repositório foi criado em resposta ao teste prático back-end para empresa
 Albuquerque, <a href="https://github.com/mex3890">Github</a>. As introduções e justificativas da aplicação estão
 deisponíveis no repositório do <a href="https://github.com/Work-In-Ideas-WiiD/teste-backend-pleno">teste</a>.
 
+- [Postman](#Postman)
 - [Tecnologias](#tecnologias).
 - [Migrations](#migrations).
 - [Factories & Seeders](#factories--seeders).
-- [Autenticação](#autenticação).
 - [Rotas](#rotas).
 
 <hr>
+
+## Postman
+
+Para realizar testes basta importar a pasta gerada pelo Postman que estão na raiz do projeto, as instruções de
+utilização da API estão descritas na própria collection do Postman. Para utilizar corretamente basta carregar o environment
+do Postman e seguir as instruções descritas na collection.
 
 ## Tecnologias
 
@@ -49,3 +55,32 @@ Factories:
 - Pagadores - PayerFactory.php
 - Boletos - BarcodeFactory.php
 
+## Rotas
+
+- Autenticação e dados pessoais
+
+| Método | Rota          | Precisa de Autenticação | Parâmetros URI |
+|--------|---------------|-------------------------|----------------|
+| POST   | /api/login    | false                   | null           |
+| POST   | /api/register | false                   | null           |
+| GET    | /api/logout   | true                    | null           |
+| GET    | /api/me       | true                    | null           |
+
+- Boletos
+
+| Método | Rota                              | Precisa de Autenticação | Parâmetros URI |
+|--------|-----------------------------------|-------------------------|----------------|
+| POST   | `/api/boleto/create`              | true                    | null           |
+| PUT    | `/api/boleto/update/$boleto_id`   | true                    | null           |
+| DEL    | `/api/boleto/delete/$boleto_id`   | true                    | null           |
+| GET    | `/api/boleto/me`                  | true                    | order_by       |
+| GET    | `/api/boleto/pagador/$pagador_id` | true                    | order_by       |
+
+- Pagadores
+
+| Método | Rota                              | Precisa de Autenticação | Parâmetros URI |
+|--------|-----------------------------------|-------------------------|----------------|
+| POST   | `/api/pagador/create`             | true                    | null           |
+| PUT    | `/api/pagador/update/$pagador_id` | true                    | null           |
+| DEL    | `/api/pagador/delete/$pagador_id` | true                    | null           |
+| GET    | `/api/pagador/me`                 | true                    | order_by       |

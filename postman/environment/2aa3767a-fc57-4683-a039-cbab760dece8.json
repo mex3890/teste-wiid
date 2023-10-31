@@ -1,0 +1,1 @@
+{"id":"2aa3767a-fc57-4683-a039-cbab760dece8","name":"Test WIID","values":[{"key":"BASE_URL","value":"http://teste-wiid.local/api","enabled":true,"type":"default"},{"key":"TOKEN","value":"","enabled":false,"type":"secret"}]}
