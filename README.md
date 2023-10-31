@@ -11,8 +11,8 @@ deisponíveis no repositório do <a href="https://github.com/Work-In-Ideas-WiiD/
 - [Tecnologias](#tecnologias).
 - [Migrations](#migrations).
 - [Factories & Seeders](#factories--seeders).
+- [Autenticação](#autenticação).
 - [Rotas](#rotas).
-
 
 <hr>
 
