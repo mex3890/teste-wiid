@@ -18,7 +18,7 @@ deisponíveis no repositório do <a href="https://github.com/Work-In-Ideas-WiiD/
 
 ## Postman
 
-Para realizar testes basta importar a pasta gerada pelo Postman que estão na raiz do projeto, as instruções de
+Para realizar testes basta importar a pasta gerada pelo Postman que está na raiz do projeto, as instruções de
 utilização da API estão descritas na própria collection do Postman. Para utilizar corretamente basta carregar o
 environment
 do Postman e seguir as instruções descritas na collection.
